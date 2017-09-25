@@ -19,6 +19,7 @@ p {
     font-weight: 500;
     text-transform: uppercase;
     color: whitesmoke;
+    background-color: crimson;
 }
 
 .navbar-brand {
@@ -26,7 +27,7 @@ p {
 }
 
 .nav > li > a:hover{
-    background-color: transparent;
+    /* background-color: transparent; */
     font-size: 130%;
 }
 
