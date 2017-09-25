@@ -5,3 +5,43 @@ body {
 p {
     font-family: 'Belleza', sans-serif;
 }
+
+/* NAVBAR
+-------------------------------------------------- */
+.navbar {
+    border-radius: 0;
+    background-color: crimson;
+}
+
+.navbar .nav>li>a {
+    font-size: 11px;
+    line-height: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: whitesmoke;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.nav > li > a:hover{
+    background-color: transparent;
+    font-size: 130%;
+}
+
+.navbar-light {
+    font-size: 350%;
+    font-weight: bold
+}
+
+.navbar-light .navbar-brand:hover, 
+.navbar-light .navbar-brand:focus {
+  background-color: transparent;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
