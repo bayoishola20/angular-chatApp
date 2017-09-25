@@ -1,0 +1,25 @@
+{
+  "name": "angular-chat-app",
+  "version": "1.0.0",
+  "description": "angular + mongodb + express + socket.io",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bayoishola20/angular-chatApp.git"
+  },
+  "keywords": [
+    "socketio",
+    "angular",
+    "node",
+    "mongo"
+  ],
+  "author": "bayoishola20",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bayoishola20/angular-chatApp/issues"
+  },
+  "homepage": "https://github.com/bayoishola20/angular-chatApp#readme"
+}
