@@ -4,10 +4,6 @@ const path = require('path');
 const app = express();// Initializing express
 const io = require('socket.io').listen(process.env.PORT || 8000).sockets;
 
-//Edit for ng Build Where all routes will come to
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
 
 mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
     if(err) {
@@ -51,9 +47,37 @@ mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
                     sendStatus({
                         message: 'Sent',
                         clear: true
-                    })
+                    });
                 });
             }
         });
+
+        //Handle clear
+        socket.on('clear', function(data){
+            chat.remove({}, function(){
+                socket.emit('cleared');
+            });
+        });
     });
+});
+
+// Index route: Found in public folder
+app.get('/', (req, res) => {
+    res.send("Invalid Endpoint...");
+});
+
+//Edit for ng Build Where all routes will come to
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
+
+//Server connection
+io.on('connection', (socket)=>{
+    console.log('Connection initiated...');
+});
+
+const port = process.env.PORT || 8888;
+
+app.listen(port, () => {
+    console.log('Server started on ' + port);
 });
