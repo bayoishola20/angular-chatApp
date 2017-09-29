@@ -12,7 +12,7 @@ mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
     console.log('Mongodb connected...');
 
     //connect to socket.io
-    io.on('connection', function(){
+    io.on('connection', function(socket){
         let chat = db.collection('chats');
 
         // Create function to send status
