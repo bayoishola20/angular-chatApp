@@ -8,18 +8,21 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'about', component: AboutComponent}
-]
+  {path: 'about', component: AboutComponent},
+  // {path: 'contact', component: ContactComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

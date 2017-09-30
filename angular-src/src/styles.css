@@ -46,3 +46,9 @@ p {
 .navbar .navbar-collapse {
     text-align: center;
 }
+
+/* Contact Modal */
+.modal-header {
+    background-color: crimson;
+    color: white;
+}

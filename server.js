@@ -68,6 +68,10 @@ mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
 //     res.send("Invalid Endpoint...");
 // });
 
+//Static folder
+//Set static folder as public
+app.use(express.static(path.join(__dirname, 'public')));
+
 //Edit for ng Build Where all routes will come to
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
