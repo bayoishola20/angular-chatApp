@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as io from 'socket.io-client'; //library defined in server.jss
+import * as io from 'socket.io-client';
+
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,8 @@ import * as io from 'socket.io-client'; //library defined in server.jss
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  socket: io.Socket
-  
+  socket: SocketIOClient.Socket;
+
   constructor() {
     this.socket = io.connect();
    }
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
         msg: 'Yes, it works for me!!!'
       });
     });
-    this.socket.on('event4', (data:any) => {
+    this.socket.on('event4', (data: any) => {
       console.log(data.msg);
     });
   }
