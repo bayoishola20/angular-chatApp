@@ -15,6 +15,9 @@ Angular + MongoDB + socket.io
 * Express
 * socket.io
 
+N:B - Do this for angular client side to resolve typings issue.
+
+* sudo npm i @types/socket.io-client
 
 
 [bayoishola20](github.bayoishola20.io)

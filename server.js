@@ -2,8 +2,10 @@ const mongo = require('mongodb').MongoClient;
 const express = require('express');
 const path = require('path');
 const app = express();// Initializing express
-const io = require('socket.io').listen(process.env.PORT || 8000).sockets;
+const server = require('http').Server(app);
+const io = require('socket.io').listen(server);
 
+const port = process.env.PORT || 8888;
 
 mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
     if(err) {
@@ -76,7 +78,7 @@ io.on('connection', (socket)=>{
     console.log('Connection initiated...');
 });
 
-const port = process.env.PORT || 8888;
+
 
 app.listen(port, () => {
     console.log('Server started on ' + port);
