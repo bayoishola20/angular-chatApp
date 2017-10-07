@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocketService } from '../socket.service';
 import * as io from 'socket.io-client';
 
 
@@ -8,25 +9,46 @@ import * as io from 'socket.io-client';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  socket: SocketIOClient.Socket;
+  // SocketIOClient works because I am using its @types
+  // socket: SocketIOClient.Socket;
+  messageText: String;
+  messages: Array<any>;
+  selfAuthored: Boolean = false;
+  avatar: String = '../../assets/img/user.png';
 
-  constructor() {
-    this.socket = io.connect();
-   }
+  constructor( private socketService: SocketService ) { }
 
   ngOnInit() {
-    this.socket.emit('event1', {
+  /*  this.socketService.emit('event1', {
       msg: 'Client to server, are you listening...'
     });
-    this.socket.on('event2', (data: any) => {
+    this.socketService.on('event2', (data: any) => {
       console.log(data.msg);
-      this.socket.emit('event3', {
+    this.socketService.emit('event3', {
         msg: 'Yes, it works for me!!!'
       });
     });
-    this.socket.on('event4', (data: any) => {
+    this.socketService.on('event4', (data: any) => {
       console.log(data.msg);
+    }); */
+
+    this.messages = new Array();
+
+    this.socketService.on('message-received', (msg: any) => {
+      this.messages.push(msg);
+      console.log(msg);
+      console.log(this.messages);
     });
+  }
+
+  sendMessage() {
+    const message = {
+      text: this.messageText,
+      date: Date.now(),
+      imageUrl: this.avatar
+    };
+    this.socketService.emit('send-message', message);
+    this.messageText = '';
   }
 
 }

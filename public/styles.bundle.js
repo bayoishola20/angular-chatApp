@@ -28,16 +28,16 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(180);
+var content = __webpack_require__(181);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(235)(content, {});
+var update = __webpack_require__(236)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -138,7 +138,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 180:
+/***/ 181:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(17)(false);
@@ -146,14 +146,14 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n    font-family: 'Bellefair', serif;\n}\np {\n    font-family: 'Belleza', sans-serif;\n}\n\n/* NAVBAR\n-------------------------------------------------- */\n.navbar {\n    border-radius: 0;\n    background-color: crimson;\n}\n\n.navbar .nav>li>a {\n    font-size: 11px;\n    line-height: 22px;\n    font-weight: 500;\n    text-transform: uppercase;\n    color: whitesmoke;\n    background-color: crimson;\n}\n\n.navbar-brand {\n    color: white;\n}\n\n.nav > li > a:hover{\n    /* background-color: transparent; */\n    font-size: 40%;\n}\n\n.navbar-light {\n    font-size: 350%;\n    font-weight: bold\n}\n\n.navbar-light .navbar-brand:hover, \n.navbar-light .navbar-brand:focus {\n  background-color: transparent;\n  color: whitesmoke;\n  font-weight: bold;\n}\n\n.navbar .navbar-collapse {\n    text-align: center;\n}\n\n/* Contact Modal */\n.modal-header {\n    background-color: crimson;\n    color: white;\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n    font-family: 'Bellefair', serif;\n    background-color: whitesmoke;\n}\np {\n    font-family: 'Belleza', sans-serif;\n}\n\n/* NAVBAR\n-------------------------------------------------- */\n.navbar {\n    border-radius: 0;\n    background-color: crimson;\n}\n\n.navbar .nav>li>a {\n    font-size: 11px;\n    line-height: 22px;\n    font-weight: 500;\n    text-transform: uppercase;\n    color: whitesmoke;\n    background-color: crimson;\n}\n\n.navbar-brand {\n    color: white;\n}\n\n.nav > li > a:hover{\n    /* background-color: transparent; */\n    font-size: 40%;\n}\n\n.navbar-light {\n    font-size: 350%;\n    font-weight: bold\n}\n\n.navbar-light .navbar-brand:hover, \n.navbar-light .navbar-brand:focus {\n  background-color: transparent;\n  color: whitesmoke;\n  font-weight: bold;\n}\n\n.navbar .navbar-collapse {\n    text-align: center;\n}\n\n/* Contact Modal */\n.modal-header {\n    background-color: crimson;\n    color: white;\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 235:
+/***/ 236:
 /***/ (function(module, exports) {
 
 /*
@@ -406,10 +406,10 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 243:
+/***/ 244:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(110);
+module.exports = __webpack_require__(111);
 
 
 /***/ }),
@@ -2437,5 +2437,5 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 /***/ })
 
-},[243]);
+},[244]);
 //# sourceMappingURL=styles.bundle.js.map

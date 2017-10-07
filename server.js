@@ -7,6 +7,11 @@ const io = require('socket.io').listen(server);
 
 const port = process.env.PORT || 8888;
 
+// using server as opposed to app references socketio
+server.listen(port, () => {
+    console.log('Server started on ' + port);
+});
+
 mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
     if(err) {
         throw err;
@@ -77,13 +82,27 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-//Server connection
+//Socket server connection and testing
 io.on('connection', (socket)=>{
     console.log('Connection initiated...');
-});
 
+    //Messages
+    socket.on('send-message', (data) => {
+        console.log(data.text);
+        io.emit('message-received', data);
+    });
+/*    socket.on('event1', (data) => {
+        msg: 'Client to server, are you listening...'
+    });
 
+    socket.emit('event2', {
+          msg: 'Yes, it works for me!!!'
+    });
 
-app.listen(port, () => {
-    console.log('Server started on ' + port);
+    socket.on('event3', (data) => {
+        console.log(data.msg);
+        socket.emit('event4', {
+            msg: 'Roger that. Loud and clear'
+        });
+    }); */
 });
