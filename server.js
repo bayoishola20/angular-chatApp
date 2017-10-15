@@ -27,7 +27,7 @@ mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
             socket.emit('status', x);
         }
 
-        //Get chats from mongo collection
+        //Get chats from mongo collection and set limit
         chat.find().limit(100).sort({_id:1}).toArray(function(err, res){
             if(err){
                 throw err;
