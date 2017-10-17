@@ -9,7 +9,6 @@ Angular + MongoDB + socket.io
 
 
 ## You should have installed (most recent versions):
-
 * Node
 * MongoDB localhost or use mlab
 * Express
