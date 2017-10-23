@@ -12,6 +12,7 @@ server.listen(port, () => {
     console.log('Server started on ' + port);
 });
 
+//Mongo connect
 mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
     if(err) {
         throw err;
