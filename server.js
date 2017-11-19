@@ -69,6 +69,7 @@ mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
     });
 });
 
+
 // Index route: Found in public folder
 // app.get('/', (req, res) => {
 //     res.send("Invalid Endpoint...");
