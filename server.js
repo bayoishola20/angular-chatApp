@@ -84,15 +84,20 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
+users = [];
+connections = [];
+
 //Socket server connection and testing
 io.on('connection', (socket)=>{
-    console.log('Connection initiated...');
+    connections.push(socket)
+    console.log('Connected: %s socket(s) connected...', connections.length);
 
     //Messages
     socket.on('send-message', (data) => {
         console.log(data.text);
         io.emit('message-received', data);
     });
+
 /*    socket.on('event1', (data) => {
         msg: 'Client to server, are you listening...'
     });
@@ -107,4 +112,11 @@ io.on('connection', (socket)=>{
             msg: 'Roger that. Loud and clear'
         });
     }); */
+
+    // Disconnect
+    socket.on('disconnect', (data) => {
+        connections.splice(connections.indexOf(socket), 1);
+        console.log('Disconnected: %s socket(s) connected...', connections.length);
+    });   
+
 });
