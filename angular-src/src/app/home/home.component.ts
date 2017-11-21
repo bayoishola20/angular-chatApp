@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   // socket: SocketIOClient.Socket;
   messageText: String;
   messages: Array<any>;
+  username: String;
+  users: Array<any>;
   selfAuthored: Boolean = false;
   avatar: String = '../../assets/img/user.png';
 
@@ -39,6 +41,14 @@ export class HomeComponent implements OnInit {
       console.log(msg);
       console.log(this.messages);
     });
+
+    this.users = new Array();
+
+    this.socketService.on('get-users', (user: any) => {
+      this.users.push(user);
+      console.log(user);
+      console.log(this.users);
+    });
   }
 
   sendMessage() {
@@ -49,6 +59,14 @@ export class HomeComponent implements OnInit {
     };
     this.socketService.emit('send-message', message);
     this.messageText = '';
+  }
+
+  sendUser() {
+    const user = {
+      user: this.username
+    };
+    this.socketService.emit('new-user', user);
+    this.username = '';
   }
 
 }
