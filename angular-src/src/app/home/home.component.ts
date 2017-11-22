@@ -44,9 +44,9 @@ export class HomeComponent implements OnInit {
 
     this.users = new Array();
 
-    this.socketService.on('get-users', (user: any) => {
-      this.users.push(user);
-      console.log(user);
+    this.socketService.on('get-users', (msg: any) => {
+      this.users.push(msg);
+      console.log(msg);
       console.log(this.users);
     });
   }

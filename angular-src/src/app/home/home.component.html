@@ -5,7 +5,7 @@
       <form id="userForm" (ngSubmit)="sendUser()">
         <label> Enter Username &rarr; </label>
         <div class="input-group">
-          <input type="text" class="form-control input-md chat-input" id="username" placeholder="Let's get you logged in ..." name="username" [(ngModel)]="Username" />
+          <input type="text" autocomplete="on" class="form-control input-md chat-input" id="username" placeholder="Let's get you logged in ..." name="username" [(ngModel)]="Username" />
           <span class="input-group-btn">
               <button type="submit" class="btn btn-md btn-warning">
                   <i class="fa fa-paper-plane" aria-hidden="true"></i>

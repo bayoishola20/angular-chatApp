@@ -94,8 +94,8 @@ io.on('connection', (socket)=>{
 
     //Messages
     socket.on('send-message', (data) => {
-        console.log(data.text);
-        io.emit('message-received', data. socket.username);
+        // console.log(data.text);
+        io.emit('message-received', data, socket.username);
     });
 
 /*    socket.on('event1', (data) => {
@@ -113,22 +113,19 @@ io.on('connection', (socket)=>{
         });
     }); */
 
-    //Update Usernames
-    function updateUsernames(){
-        io.emit('get-users', users);
-    }
 
-    socket.on('new-user', (data, callback) => {
+    socket.on('new-user', (data) => {
         // callback(true);
         socket.username = data;
         users.push(socket.username);
-        updateUsernames();
+        console.log(data.user);
+        io.emit('get-users', data);
     });
 
     // Disconnect
     socket.on('disconnect', (data) => {
         users.splice(users.indexOf(socket.username), 1);
-        updateUsernames();
+        io.emit('get-users', users);
         connections.splice(connections.indexOf(socket), 1);
         console.log('Disconnected: %s socket(s) connected...', connections.length);
     });
