@@ -13,61 +13,61 @@ server.listen(port, () => {
 });
 
 //Mongo connect
-mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
-    if(err) {
-        throw err;
-    }
-    console.log('Mongodb connected...');
+// mongo.connect('mongodb://localhost:27017/angular-chatApp', function(err, db) {
+//     if(err) {
+//         throw err;
+//     }
+//     console.log('Mongodb connected...');
 
-    //connect to socket.io
-    io.on('connection', function(socket){
-        let chat = db.collection('chats');
+//     //connect to socket.io
+//     io.on('connection', function(socket){
+//         let chat = db.collection('chats');
 
-        // Create function to send status
-        sendStatus = function(x){
-            socket.emit('status', x);
-        }
+//         // Create function to send status
+//         sendStatus = function(x){
+//             socket.emit('status', x);
+//         }
 
-        //Get chats from mongo collection and set limit
-        chat.find().limit(100).sort({_id:1}).toArray(function(err, res){
-            if(err){
-                throw err;
-            }
+//         //Get chats from mongo collection and set limit
+//         chat.find().limit(100).sort({_id:1}).toArray(function(err, res){
+//             if(err){
+//                 throw err;
+//             }
 
-            //Emit messages
-            socket.emit('output', res);
-        });
+//             //Emit messages
+//             socket.emit('output', res);
+//         });
 
-        //Handle input events
-        socket.on('input', function(data){
-            let name = data.name;
-            let message = data.message;
+//         //Handle input events
+//         socket.on('input', function(data){
+//             let name = data.name;
+//             let message = data.message;
 
-            //check name and message
-            if(name == '' || message == ''){
-                sendStatus('Insert a name and message');
-            } else {
-                //insert message
-                chat.insert({name: name, message: message}, function(){
-                    io.emit('output', [data]);
+//             //check name and message
+//             if(name == '' || message == ''){
+//                 sendStatus('Insert a name and message');
+//             } else {
+//                 //insert message
+//                 chat.insert({name: name, message: message}, function(){
+//                     io.emit('output', [data]);
 
-                    //Send status object
-                    sendStatus({
-                        message: 'Sent',
-                        clear: true
-                    });
-                });
-            }
-        });
+//                     //Send status object
+//                     sendStatus({
+//                         message: 'Sent',
+//                         clear: true
+//                     });
+//                 });
+//             }
+//         });
 
-        //Handle clear
-        socket.on('clear', function(data){
-            chat.remove({}, function(){
-                socket.emit('cleared');
-            });
-        });
-    });
-});
+//         //Handle clear
+//         socket.on('clear', function(data){
+//             chat.remove({}, function(){
+//                 socket.emit('cleared');
+//             });
+//         });
+//     });
+// });
 
 
 // Index route: Found in public folder
