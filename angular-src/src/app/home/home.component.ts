@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   // socket: SocketIOClient.Socket;
   messageText: String;
   messages: Array<any>;
-  username: String;
+  Username: String;
   users: Array<any>;
   selfAuthored: Boolean = false;
   avatar: String = '../../assets/img/user.png';
@@ -63,10 +63,10 @@ export class HomeComponent implements OnInit {
 
   sendUser() {
     const user = {
-      user: this.username
+      user: this.Username
     };
     this.socketService.emit('new-user', user);
-    this.username = '';
+    this.Username = '';
   }
 
 }

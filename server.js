@@ -95,7 +95,7 @@ io.on('connection', (socket)=>{
     //Messages
     socket.on('send-message', (data) => {
         // console.log(data.text);
-        io.emit('message-received', data, socket.username);
+        io.emit('message-received', data);
     });
 
 /*    socket.on('event1', (data) => {

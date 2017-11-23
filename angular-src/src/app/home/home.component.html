@@ -5,7 +5,7 @@
       <form id="userForm" (ngSubmit)="sendUser()">
         <label> Enter Username &rarr; </label>
         <div class="input-group">
-          <input type="text" autocomplete="on" class="form-control input-md chat-input" id="username" placeholder="Let's get you logged in ..." name="username" [(ngModel)]="Username" />
+          <input type="text" autocomplete="on" class="form-control input-md chat-input" id="Username" placeholder="Let's get you logged in ..." name="Username" [(ngModel)]="Username" />
           <span class="input-group-btn">
               <button type="submit" class="btn btn-md btn-warning">
                   <i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
             Online
           </h4>
           <hr>
-          <ul class="list-group" id="users"></ul>
+          <ul class="list-group" id="users"> bayo </ul>
         </div>
     </div>
     <div class="col-xs-8 col-md-8">
@@ -45,7 +45,7 @@
                     <p>&nbsp; {{ message.text }} </p>
                   </div>
                   <div class="chat-msg-author">
-                      <strong>{{ message.username }}</strong>&nbsp;
+                        <strong>{{ message.username }}</strong>&nbsp;
                       <span class="time"><small><i class="fa fa-fw fa-check" aria-hidden="true" style="color:#BEF1BE"></i></small><small>{{ message.date | date: 'shortTime' }}</small></span>
                   </div>
                 </div>
