@@ -17,15 +17,17 @@
   </div>
 
   <div class="row chat-window col-xs-5 col-md-3">
+    <!-- User Area -->
     <div class="col-xs-4 col-md-4">
         <div class="well">
           <h4 class="text-center text-success">
-            Online
+            LIVE USERS
           </h4>
           <hr>
-          <ul class="list-group" id="users"> bayo </ul>
+          <ul class="list-group online-users" id="users" *ngFor="let n of users"> <i class="fa fa-user-circle fa-fw" aria-hidden="true"></i> &nbsp; {{ n.user }} </ul>
         </div>
     </div>
+
     <div class="col-xs-8 col-md-8">
       <div class="panel panel-warning">
         <div class="panel-heading chat-top-bar">
@@ -36,6 +38,9 @@
           </div>
         </div>
         <div class="panel-body">
+
+          <!-- Main message history area -->
+
           <div class="msg-container-base">
             <div class="row msg-container" *ngFor="let message of messages">
               <div class="col-xs-12 col-md-12">
@@ -52,6 +57,9 @@
               </div>
             </div>
           </div>
+
+          <!-- Send message -->
+
           <div class="chat-bottom-bar">
             <form style="display:inherit" (ngSubmit)="sendMessage()">
               <div class="input-group" >
@@ -65,6 +73,7 @@
               </div>
             </form>
           </div>
+          
         </div>
       </div>
     </div>

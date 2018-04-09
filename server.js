@@ -98,21 +98,6 @@ io.on('connection', (socket)=>{
         io.emit('message-received', data);
     });
 
-/*    socket.on('event1', (data) => {
-        msg: 'Client to server, are you listening...'
-    });
-
-    socket.emit('event2', {
-          msg: 'Yes, it works for me!!!'
-    });
-
-    socket.on('event3', (data) => {
-        console.log(data.msg);
-        socket.emit('event4', {
-            msg: 'Roger that. Loud and clear'
-        });
-    }); */
-
 
     socket.on('new-user', (data) => {
         // callback(true);

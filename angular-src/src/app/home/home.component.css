@@ -8,6 +8,13 @@
   }
 
 
+/* User register */
+
+.fa-user-circle {
+  color: aquamarine;
+  outline-color: antiquewhite;
+}
+
 .chat-window .panel {
   border: 0;
   border-radius: 5px 5px 0 0;
@@ -110,7 +117,7 @@
   word-break: break-all;
 }
 
-.chat-input {
+.chat-input, .online-users {
   overflow-wrap: break-word;
 }
 

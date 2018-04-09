@@ -21,19 +21,6 @@ export class HomeComponent implements OnInit {
   constructor( private socketService: SocketService ) { }
 
   ngOnInit() {
-  /*  this.socketService.emit('event1', {
-      msg: 'Client to server, are you listening...'
-    });
-    this.socketService.on('event2', (data: any) => {
-      console.log(data.msg);
-    this.socketService.emit('event3', {
-        msg: 'Yes, it works for me!!!'
-      });
-    });
-    this.socketService.on('event4', (data: any) => {
-      console.log(data.msg);
-    }); */
-
     this.messages = new Array();
 
     this.socketService.on('message-received', (msg: any) => {
