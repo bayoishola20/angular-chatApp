@@ -10,8 +10,8 @@
 
 /* User register */
 
-.fa-user-circle {
-  color: aquamarine;
+.fa-user-circle, .fa-check {
+  color: #BEF1BE;
   outline-color: antiquewhite;
 }
 

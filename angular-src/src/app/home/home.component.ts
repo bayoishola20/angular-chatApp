@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   messages: Array<any>;
   Username: String;
   users: Array<any>;
+  registered: Boolean;
   selfAuthored: Boolean = false;
   avatar: String = '../../assets/img/user.png';
 
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
       console.log(msg);
       console.log(this.users);
     });
+    this.registered = false;
   }
 
   sendMessage() {
@@ -50,10 +52,11 @@ export class HomeComponent implements OnInit {
 
   sendUser() {
     const user = {
-      user: this.Username
+      user: this.Username,
     };
     this.socketService.emit('new-user', user);
     this.Username = '';
+    this.registered = true;
   }
 
 }
